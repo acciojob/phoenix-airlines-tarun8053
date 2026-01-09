@@ -1,34 +1,29 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function FlightSearch() {
+export default function FlightSearch() {
   const history = useHistory();
 
   return (
     <div>
-      <h2>Flight Search</h2>
+      <select>
+        <option>One Way</option>
+        <option>Round Trip</option>
+      </select>
 
       <input type="text" placeholder="Source" />
       <input type="text" placeholder="Destination" />
-      <input type="date" />
-
-      <div>
-        <label>
-          <input type="radio" name="trip" /> One Way
-        </label>
-        <label>
-          <input type="radio" name="trip" /> Round Trip
-        </label>
-      </div>
 
       <button
         className="book-flight"
         onClick={() => history.push("/flight-booking")}
       >
-        Book
+        Book Flight
       </button>
+
+      <ul>
+        <li>Flight Available</li>
+      </ul>
     </div>
   );
 }
-
-export default FlightSearch;
