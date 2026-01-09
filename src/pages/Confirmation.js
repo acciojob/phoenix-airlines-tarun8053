@@ -9,7 +9,7 @@ export default function Confirmation() {
       <h2>Booking Confirmed</h2>
 
       <ul>
-        <li>Thank you for booking with Phoenix Airlines</li>
+        <li>Round Trip booking successful</li>
       </ul>
 
       <button onClick={() => history.push("/")}>

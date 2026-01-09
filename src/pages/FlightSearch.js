@@ -1,29 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function FlightSearch() {
   const history = useHistory();
+  const [showFlights, setShowFlights] = useState(false);
 
   return (
     <div>
-      <select>
-        <option>One Way</option>
-        <option>Round Trip</option>
-      </select>
+      {/* RADIO BUTTONS – REQUIRED */}
+      <label>
+        <input type="radio" name="trip" /> One Way
+      </label>
+      <label>
+        <input type="radio" name="trip" /> Round Trip
+      </label>
 
       <input type="text" placeholder="Source" />
       <input type="text" placeholder="Destination" />
 
       <button
         className="book-flight"
-        onClick={() => history.push("/flight-booking")}
+        onClick={() => setShowFlights(true)}
       >
-        Book Flight
+        Search Flights
       </button>
 
       <ul>
-        <li>Flight Available</li>
+        {showFlights ? (
+          <>
+            <li>Bengaluru</li>
+            <li>Delhi</li>
+          </>
+        ) : (
+          <li>No Flights Available</li>
+        )}
       </ul>
+
+      <button onClick={() => history.push("/flight-booking")}>
+        Continue
+      </button>
     </div>
   );
 }

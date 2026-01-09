@@ -6,12 +6,17 @@ export default function FlightBooking() {
 
   return (
     <div>
+      {/* RADIO STILL REQUIRED HERE */}
+      <input type="radio" name="trip" /> One Way
+      <input type="radio" name="trip" /> Round Trip
+
       <input type="text" placeholder="Name" />
       <input type="text" placeholder="Email" />
       <input type="text" placeholder="Phone" />
 
       <ul>
-        <li>All fields are required</li>
+        <li>Name is required</li>
+        <li>Email is required</li>
       </ul>
 
       <button onClick={() => history.push("/confirmation")}>
